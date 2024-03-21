@@ -7,6 +7,18 @@
 // ...
 // ...
 // ...
+export const add = (a, b) => {
+    return a + b;
+};
+export const substract = (a, b) => {
+    return a - b;
+};
+export const multiply = (a, b) => {
+    return a * b;
+};
+export const divide = (a, b) => {
+    return a / b;
+};
 
 /**
  * Schreibe eine Funktion, die eine Temeratur in Celsius in eine Temperatur in
@@ -50,14 +62,15 @@ export const isOdd = () => undefined // TODO
  * der Freigrenze von 17.500 EUR (für die Steuerjahre 2003-2019) bzw. 22.000 EUR
  * (für die Steuerjahre ab 2020) soll die Kleinunternehmerregelung angewendet
  * und keine Umsatzsteuer berechnet werden. Der Rückgabewert ist dann 0.
- * 
- * @param {*} umsatz 
- * @param {*} steuerjahr 
- * @returns 
+ *
+ * @param {*} umsatz
+ * @param {*} steuerjahr
+ * @returns
  */
-export function umsatzsteuer (umsatz, steuerjahr = 2024) {
-    
+export function umsatzsteuer(umsatz, steuerjahr = 2024) {
     // ...
+
+  
 }
 
 // switch
@@ -75,10 +88,24 @@ export function umsatzsteuer (umsatz, steuerjahr = 2024) {
  * @param {*} params 
  * @returns 
  */
+let a = { b: 5 };
 export const area = (shape, params) => {
-    
     // ...
-}
+
+    let result = 0;
+    switch (shape) {
+        case "circle":
+            result = params.radius * Math.PI;
+            break;
+        case "triangle":
+            result = (params.height * params.base) / 2;
+            break;
+        case "rectangle":
+            result = params.base * params.height;
+            break;
+    }
+    return result;
+};
 
 // loops
 
@@ -88,26 +115,40 @@ export const area = (shape, params) => {
  * erzeugt.
  * Die Karten werden als Array bestehend aus Farbe und Wert dargestellt und alle
  * Karten in einem Array gesammelt zurückgegeben.
- * 
- * @returns 
+ *
+ * @returns
  */
-export function deckOfCards () {
-    
+export function deckOfCards() {
     // ...
+    
 }
 
 /**
  * Schreibe eine Funktion, die die ersten N Antworten für das FizzBuzz-Spiel
  * erzeugt und auf der Konsole ausgibt.
- * 
- * @param {*} n 
+ *
+ * @param {*} n
  * @see https://de.wikipedia.org/wiki/Fizz_buzz
  */
-export function fizzbuzz (n) {
-    
+export function fizzbuzz(n) {
     // ...
+    for (let i = 1; i < n; i++) {
+        if (i % 15) {
+            if (i % 3) {
+                if (i % 5) {
+                    console.log(i);
+                } else {
+                    console.log("buzz");
+                }
+            } else {
+                console.log("fizz");
+            }
+        } else {
+            console.log("fizz buzz");
+        }
+    }
 }
-
+console.log(fizzbuzz(100));
 // recursion
 
 /**
@@ -117,7 +158,11 @@ export function fizzbuzz (n) {
  * @returns n-th Fibonacci number
  * @see https://de.wikipedia.org/wiki/Fibonacci-Folge
  */
-export function fibonacci (n) {
-    
+export function fibonacci(n) {
     // ...
+
+    if (n < 2) {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
 }
